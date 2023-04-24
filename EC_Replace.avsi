@@ -6,7 +6,7 @@ function EC_replace(clip episode, clip ec, int "pAend", int "pBstart", bool "ecC
 ##                                          April 22 2023                                        ##
 ###################################################################################################
 
-ecomp = default(ecomp,false)
+eccomp = default(eccomp,false)
 
 PA = episode.trim(0,pAend)
 PB = episode.trim(pBstart,0)
@@ -20,7 +20,7 @@ ecstack = StackHorizontal(ogEC.Subtitle("original eyecatch", size=episode.Height
 ecComp ? ecstack : final
 
 
-check = (framecount(final) == framecount(episode)) ? final : stack
+check = (framecount(final) == framecount(episode)) ? final : ecstack
 
 return check
 
