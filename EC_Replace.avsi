@@ -6,6 +6,8 @@ function EC_replace(clip episode, clip ec, int "pAend", int "pBstart", bool "ecC
 ##                                          April 22 2023                                        ##
 ###################################################################################################
 
+ecomp = default(ecomp,false)
+
 PA = episode.trim(0,pAend)
 PB = episode.trim(pBstart,0)
 ogEC = episode.trim(pAend+1, pBstart-1)
