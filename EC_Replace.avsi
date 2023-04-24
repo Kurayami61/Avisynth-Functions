@@ -18,13 +18,10 @@ final = PA ++ ec ++ PB
 
 ecstack = StackHorizontal(ogEC.Subtitle("original eyecatch", size=episode.Height()/16), ec.Subtitle("imported eyecatch", size=ec.Height()/16))
 
-
-
-check = (framecount(final) == framecount(episode)) ? final : ecstack
-
 ecComp ? ecstack : final
 
-check
+check = (framecount(final) == framecount(episode)) ? last : ecstack
 
+check
 
 }
