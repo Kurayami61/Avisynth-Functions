@@ -7,8 +7,9 @@ function comparison(clip "clp", clip "clp2", int "mode", int "slide", int "color
 ###################################################################################################
 
 
+
 cmatrix = height(clp) <720 ? "rec601" :\
-               2160 > height(input) >= 720 ? "rec709" :\
+               2160 > height(clp) >= 720 ? "rec709" :\
                "rec2020"
                
 ocs = "Converttoyv12" + "(matrix="  + Chr(34) + cmatrix + chr(34) + ")"
