@@ -25,6 +25,8 @@
         # Removed forced converttoyv12
         # Adjusted Boolean statements
         # Function name changed from "comparison" to "Comparison"
+        # Removed 8 bit conversion
+        # Changed RGB32 to RGB24
 
     # FourComp changes:
         # Function name change from "fourcomp" to "FourComp"
@@ -42,8 +44,6 @@ function Comparison(clip "clp", clip "clp2", int "mode", int "slide", int "color
 ###################################################################################################
 
 
-bitscheck = clp.BitsPerComponent() > 8 ? clp.convertto8bit : clp 
-bitscheck2 = clp2.BitsPerComponent() > 8 ? clp.convertto8bit : clp2 
 
 mode = Default(mode, 1)
 color = Default(color, $FFFFFF)
@@ -52,8 +52,8 @@ output = Default(output, "output")
 
 slide = (mode == 4 || mode == -4) ? Default(slide, Height(clp)/2) : Default(slide, width(clp)/2)
 
-clp = clp.converttorgb32
-clp2 = clp2.converttorgb32
+clp = clp.converttorgb24
+clp2 = clp2.converttorgb24
 
 compare = \
                   (mode == 1) ? StackHorizontal(clp.Subtitle(input, size=clp.Height()/15), clp2.Subtitle(output, size=clp2.Height()/15))       :\
